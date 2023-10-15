@@ -1,0 +1,84 @@
+.card {
+  background: var(--theme-bg-card-header);
+  text-align: center;
+  display: grid;
+  gap: 2px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 10%);
+  grid-template-areas:
+      "    title title"
+      "    value value"
+      "variation updated";
+  & > * {
+      padding: 1em;
+  }
+  & header {
+      font-weight: bold;
+  }
+  & section {
+      background: var(--theme-bg-card);
+      & > header {
+          font-size: 0.75em;
+          font-weight: 600;
+          color: var(--theme-text-secondary);
+          margin-bottom: 0.5em;
+      }
+      & > div {
+          font-weight: 600;
+      }
+  }
+  & .card-title {
+      grid-area: title;
+      font-size: 1.1em;
+  }
+  & .card-value {
+      grid-area: value;
+      font-size: 2.5em;
+      font-weight: 500;
+  }
+  & .card-variation {
+      grid-area: variation;
+  }
+  & .card-updated {
+      grid-area: updated;
+  }
+  & .overlay {
+      grid-row: value / span updated;
+      grid-column: 1 / span 3;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s;
+      &:empty {
+          opacity: 0;
+          visibility: hidden;
+      }
+  }
+  & .loader {
+      background: var(--img-loader) no-repeat;
+      background-size: contain;
+      height: 5em;
+      width: 5em;
+  }
+  & .error {
+      font-weight: light;
+      & button {
+          cursor: pointer;
+          background: var(--theme-bg-button);
+          padding: 1em;
+          text-transform: uppercase;
+          margin-top: 1em;
+          outline: none;
+          border: 0px;
+          border-radius: 6px;
+      }
+  }
+}

@@ -1,0 +1,17 @@
+nav {
+  background: var(--theme-bg-app-header);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 16px;
+  z-index: 1000;
+  & .logo {
+      height: 32px;
+      flex: 1;
+      background: var(--img-logo);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+}

@@ -1,1 +1,23 @@
-<p>currency-card works!</p>
+<div class="card">
+  <header class="card-title">{{ title }}</header>
+  <ng-container>
+    <section class="card-value"><span [ngStyle]="getColor(currencyData?.high)">
+        R$ {{ currencyData?.high?.slice(0, 4) }}
+      </span></section>
+    <section class="card-detail">
+      <header>Variação (%)</header>
+      <div>{{ currencyData?.pctChange }}</div>
+    </section>
+    <section class="card-detail">
+      <header>Atualizado</header>
+      <div> {{ currencyService.lastTimeFetched | date:'HH:mm:ss' }}</div>
+    </section>
+  </ng-container>
+  <section class="overlay">
+    <div class="loader" *ngIf="loading"></div>
+    <div class="error" *ngIf="error">
+      <div>Algo deu errado</div>
+      <button (click)="currencyService.reloadData()">Recarregar</button>
+    </div>
+  </section>
+</div>
