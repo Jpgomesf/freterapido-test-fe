@@ -15,7 +15,7 @@ npm install -g @angular/cli
 1. Clone o repositório usando o comando:
 
 ```bash
-git clone [url](https://github.com/Jpgomesf/test-fe)
+git clone https://github.com/Jpgomesf/test-fe
 ```
 
 2. Navegue até o diretório do projeto:
