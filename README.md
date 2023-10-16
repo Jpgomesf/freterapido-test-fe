@@ -54,7 +54,7 @@ docker build -t test-fe .
 docker run -d -p 8080:80 teste-fe
 ```
 
-3. Acesse http://localhost:8080/ no navegador.
+3. Acesse http://localhost:8080:80/ no navegador.
 
 ## Testes Automatizados
 
