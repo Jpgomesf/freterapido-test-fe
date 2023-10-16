@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ConvertedCurrency, CurrencyService } from '../services/currency.service';
+import { CurrencyService } from '../services/currency.service';
+import { CurrencyInfo, currencyModel } from '../types/currency';
+
 
 @Component({
   selector: 'currency-card',
@@ -7,11 +9,10 @@ import { ConvertedCurrency, CurrencyService } from '../services/currency.service
   styleUrls: ['./currency-card.component.css']
 })
 export class CurrencyCardComponent {
-  @Input() currencyData: any
+  @Input() currencyData: CurrencyInfo | null = currencyModel
   @Input() title: string = '';
   @Input() error: boolean = false;
   @Input() loading: boolean = false;
-
 
   constructor(public currencyService: CurrencyService) { }
 

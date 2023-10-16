@@ -1,8 +1,8 @@
 <div class="card">
   <header class="card-title">{{ title }}</header>
   <ng-container>
-    <section class="card-value"><span [ngStyle]="getColor(currencyData?.high)">
-        R$ {{ currencyData?.high?.slice(0, 4) }}
+    <section class="card-value"><span [ngStyle]="getColor(currencyData?.bid!)">
+        R$ {{ currencyData?.bid?.slice(0, 4) }}
       </span></section>
     <section class="card-detail">
       <header>Variação (%)</header>

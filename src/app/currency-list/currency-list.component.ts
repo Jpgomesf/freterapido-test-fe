@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ConvertedCurrency, CurrencyService } from '../services/currency.service';
+import { CurrencyService } from '../services/currency.service';
 import { Subscription } from 'rxjs';
+import { ConvertedCurrency } from '../types/currency';
 
 @Component({
   selector: 'currency-list',
@@ -8,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./currency-list.component.css']
 })
 export class CurrencyListComponent {
-  data: ConvertedCurrency | null = null;
+  data: ConvertedCurrency | null = {};
   loadingState: { [key: string]: boolean } = {
     CAD: true,
     ARS: true,
@@ -19,15 +20,13 @@ export class CurrencyListComponent {
     ARS: false,
     GBP: false,
   };
-  private subscription: Subscription | undefined;
+  public subscription: Subscription | undefined;
 
   constructor(public currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.subscription = this.currencyService.data$.subscribe((data) => {
       this.data = data;
-    });
-    this.currencyService.data$.subscribe((data) => {
       this.loadingState = this.currencyService.loadingState;
       this.errorState = this.currencyService.errorState;
     });

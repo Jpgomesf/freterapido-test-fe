@@ -1,8 +1,8 @@
 <div class="list">
-  <currency-card [title]="'Dólar Canadense'" [currencyData]="data?.['CADBRL']" [error]="errorState['CAD']"
+  <currency-card [title]="'Dólar Canadense'" [currencyData]="data!['CADBRL']" [error]="errorState['CAD']"
     [loading]="loadingState['CAD']" />
-  <currency-card [title]="'Peso Argentino'" [currencyData]="data?.['ARSBRL']" [error]="errorState['ARS']"
+  <currency-card [title]="'Peso Argentino'" [currencyData]="data!['ARSBRL']" [error]="errorState['ARS']"
     [loading]="loadingState['ARS']" />
-  <currency-card [title]="'Libra Esterlina'" [currencyData]="data?.['GBPBRL']" [error]="errorState['GBP']"
+  <currency-card [title]="'Libra Esterlina'" [currencyData]="data!['GBPBRL']" [error]="errorState['GBP']"
     [loading]="loadingState['GBP']" />
 </div>
