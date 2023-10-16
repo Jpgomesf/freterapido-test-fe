@@ -15,13 +15,13 @@ npm install -g @angular/cli
 1. Clone o repositório usando o comando:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone [url](https://github.com/Jpgomesf/test-fe)
 ```
 
 2. Navegue até o diretório do projeto:
 
 ```bash
-cd nome_do_diretorio
+cd test-fe
 ```
 
 3. Instale as dependências:
@@ -50,8 +50,8 @@ Para rodar a aplicação em um container Docker, siga os passos abaixo:
 2. Execute os seguintes comandos:
 
 ```bash
-docker build -t nome_da_imagem .
-docker run -p 8080:80 nome_da_imagem
+docker build -t test-fe .
+docker run -d -p 8080:80 teste-fe
 ```
 
 3. Acesse http://localhost:8080/ no navegador.
