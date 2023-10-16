@@ -1,27 +1,89 @@
-# TestFe
+# Conversor de Moedas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Este é um projeto de aplicativo web para mostrar a conversão de três moedas para Real Brasileiro (BRL). Ele utiliza o framework Angular em sua última versão para o desenvolvimento. As moedas convertidas são o Dólar Canadense (CAD), Peso Argentino (ARS) e Libra Esterlina (GBP).
 
-## Development server
+## Instruções para Rodar o Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter o Angular CLI instalado. Caso não tenha, instale-o globalmente usando:
 
-## Code scaffolding
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Passos para rodar o projeto
 
-## Build
+1. Clone o repositório usando o comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
 
-## Running unit tests
+2. Navegue até o diretório do projeto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+cd nome_do_diretorio
+```
 
-## Running end-to-end tests
+3. Instale as dependências:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
 
-## Further help
+4. Inicie o servidor de desenvolvimento:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+
+5. Abra o navegador e acesse http://localhost:4200/.
+
+## Pré-processadores CSS
+
+Este projeto utiliza Sass como pré-processador CSS.
+
+## Container do Docker
+
+Para rodar a aplicação em um container Docker, siga os passos abaixo:
+
+1. Certifique-se de ter o Docker instalado.
+2. Execute os seguintes comandos:
+
+```bash
+docker build -t nome_da_imagem .
+docker run -p 8080:80 nome_da_imagem
+```
+
+3. Acesse http://localhost:8080/ no navegador.
+
+## Testes Automatizados
+
+Para executar os testes automatizados, utilize o seguinte comando:
+
+```bash
+ng test
+```
+
+## Como Funciona
+
+- A aplicação busca informações de conversão da API de moedas AwesomeAPI.
+- A variação em porcentagem, a hora da atualização e a exibição colorida dos valores são gerenciadas de acordo com as regras definidas.
+- As informações são cacheadas no front-end por 3 minutos e são atualizadas automaticamente a cada 3 minutos.
+
+## Design e Paleta de Cores
+
+O design da aplicação segue o mockup fornecido no link do Figma abaixo:
+
+[Mockup do Projeto](https://www.figma.com/file/iJJ3KTyOKrjgYmL04qF8kr/Currency-Converter?node-id=0%3A1)
+
+A paleta de cores utilizada está incluída no mockup.
+
+## Fonte
+
+A fonte usada na aplicação é "Poppins", com "Arial" ou qualquer outra fonte sem serifa como fallback.
+
+## Recursos Adicionais
+
+Você pode baixar a logo e o loader a partir do link do Google Drive abaixo:
+
+[Recursos Adicionais](https://drive.google.com/drive/folders/1K1Gt892JAd1bB1dV7FNDLTP-fm_3P22F?usp=sharing)
