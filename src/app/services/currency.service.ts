@@ -1,31 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, forkJoin, interval, Observable, of } from 'rxjs';
+import { BehaviorSubject, forkJoin, interval, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
-export interface ConvertedCurrency {
-  [key: string]: {
-    code: string;
-    codein: string;
-    name: string;
-    high: string;
-    low: string;
-    varBid: string;
-    pctChange: string;
-    bid: string;
-    ask: string;
-    timestamp: string;
-    create_date: string;
-  };
-};
-
+import { ConvertedCurrency } from '../types/currency';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurrencyService {
-  private data: ConvertedCurrency | null = null;
-  private dataSubject = new BehaviorSubject<ConvertedCurrency | null>(null);
+  public data: ConvertedCurrency | null = null;
+  public dataSubject = new BehaviorSubject<ConvertedCurrency | null>(null);
   public loadingState: { [key: string]: boolean } = {
     CAD: true,
     ARS: true,
@@ -39,7 +23,7 @@ export class CurrencyService {
   public lastTimeFetched: number = 0;
   public data$ = this.dataSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.fetchData();
     interval(180000).subscribe(() => {
       this.fetchData();
@@ -86,21 +70,21 @@ export class CurrencyService {
 
     forkJoin({
       CAD: this.http.get<ConvertedCurrency>('https://economia.awesomeapi.com.br/last/CAD-BRL').pipe(
-        catchError((error) => {
+        catchError(() => {
           this.errorState['CAD'] = true;
           this.loadingState['CAD'] = false;
           return of(null);
         })
       ),
       ARS: this.http.get<ConvertedCurrency>('https://economia.awesomeapi.com.br/last/ARS-BRL').pipe(
-        catchError((error) => {
+        catchError(() => {
           this.errorState['ARS'] = true;
           this.loadingState['ARS'] = false;
           return of(null);
         })
       ),
       GBP: this.http.get<ConvertedCurrency>('https://economia.awesomeapi.com.br/last/GBP-BRL').pipe(
-        catchError((error) => {
+        catchError(() => {
           this.errorState['GBP'] = true;
           this.loadingState['GBP'] = false;
           return of(null);
