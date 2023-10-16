@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CurrencyService } from '../services/currency.service';
 import { Subscription } from 'rxjs';
-import { ConvertedCurrency } from '../types/currency';
+import { ConvertedCurrency, CurrencyInfo } from '../types/currency';
 
 @Component({
   selector: 'currency-list',
@@ -30,6 +30,10 @@ export class CurrencyListComponent {
       this.loadingState = this.currencyService.loadingState;
       this.errorState = this.currencyService.errorState;
     });
+  }
+
+  getCurrencyData(currencyCode: string): CurrencyInfo | null {
+    return this.data?.[currencyCode] ?? null;
   }
 
   ngOnDestroy(): void {
